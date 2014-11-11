@@ -2,6 +2,7 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
+import json
 import inspect
 import warnings
 from functools import partial
@@ -487,7 +488,8 @@ class Job(object):
         try:
             self._result = self.func(*self.args, **self.kwargs)
             if self.kwargs.get("pubsub") == "true":
-                self.connection.publish(self.id, self._result)
+                answer = { "id": self.id, "result": self._result }
+                self.connection.publish("go_background_processing", json.dumps(answer))
         finally:
             assert self.id == _job_stack.pop()
         return self._result
