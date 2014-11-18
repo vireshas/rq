@@ -109,7 +109,7 @@ class Worker(object):
 
     def __init__(self, queues, name=None,
                  default_result_ttl=None, connection=None,
-                 exc_handler=None, default_worker_ttl=None):  # noqa
+                 exc_handler=None, default_worker_ttl=None, **kwargs):  # noqa
         if connection is None:
             connection = get_current_connection()
         self.connection = connection
