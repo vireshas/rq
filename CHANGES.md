@@ -1,3 +1,9 @@
+### 0.4.8
+(Nov 18th, 2014)
+
+- Writes also publish job to a redis pubsub queue
+
+
 ### 0.4.6
 (May 21st, 2014)
 
