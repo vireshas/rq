@@ -88,6 +88,7 @@ class _Colorizer(object):
         if not sys.stdout.isatty():
             return text
         else:
+            if text is None: text = ""
             return self.codes[color_key] + text + self.codes["reset"]
 
     def ansiformat(self, attr, text):
