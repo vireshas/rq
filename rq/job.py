@@ -12,6 +12,8 @@ from .exceptions import NoSuchJobError, UnpickleError
 from .local import LocalStack
 from .utils import import_attribute, utcformat, utcnow, utcparse
 
+import json
+
 try:
     from cPickle import loads, dumps, UnpicklingError
 except ImportError:  # noqa
